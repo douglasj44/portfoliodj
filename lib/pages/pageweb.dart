@@ -4,6 +4,7 @@ import 'package:gif_view/gif_view.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/userfull/strings.dart';
 
 class PageWeb extends StatefulWidget {
   const PageWeb({super.key});
@@ -40,7 +41,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
   }
 
   void abrirUrlGitHub() async {
-    const url = 'https://github.com/douglasj44';
+    const url = github;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       print("funciona");
@@ -50,7 +51,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
   }
 
   void abrirUrlLattes() async {
-    const url = 'http://lattes.cnpq.br/4481728517200315';
+    const url = lattes;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       print("funciona");
@@ -60,7 +61,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
   }
 
   void abrirUrlFace() async {
-    const url = 'https://www.facebook.com/BiotecSS/?ref=page_internal';
+    const url = face;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       print("funciona");
@@ -70,7 +71,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
   }
 
   void abrirUrlInsta() async {
-    const url = 'https://www.instagram.com/dougj00/';
+    const url = insta;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       print("funciona");
@@ -80,8 +81,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
   }
 
   void abrirUrl() async {
-    const url =
-        'https://drive.google.com/file/d/1p_3ifk2iH-zwvkfvD-9u9cqq_QCtsYMd/view?usp=sharing';
+    const url = pdfPort;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       print("funciona");
@@ -96,7 +96,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("alerta"),
-            content: Text("um texto"),
+            content: Text(textDownload),
             actions: [
               TextButton.icon(
                   onPressed: () {
@@ -118,17 +118,13 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           leading: Container(
-            width: 50,
-            height: 50,
-            child: GifView.asset(
-              "assets/logo-gif.gif",
-              height: 200,
-              frameRate: 30,
-            ),
+            width: 45,
+            height: 45,
+            child: Image.asset("assets/fundoDJ.png"),
           ),
           title: Text("Portifolio Douglas José"),
           automaticallyImplyLeading: false,
-          backgroundColor: Color.fromRGBO(4, 10, 34, 1),
+          backgroundColor: Color.fromRGBO(0, 51, 255, 1),
           elevation: 0,
           actions: [
             TextButton.icon(
@@ -242,7 +238,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                               Container(
                                   width: 300,
                                   child: Text(
-                                    "Soluções Rapidas e inteligentes para sua empresa ou projeto pessoal, com flexibilidade e valores acessiveis com o maximo de qualidade! Sempre pronto para tronar seus sonhos realidade!",
+                                    inithome,
                                     style: TextStyle(
                                         color: Colors.white, fontSize: 24),
                                   )),
@@ -283,19 +279,12 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                 height: 20,
                               ),
                               Container(
-                                  decoration: BoxDecoration(
-                                    color: Colors.transparent,
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
                                   height: 300,
                                   width: 300,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: GifView.asset(
-                                      "assets/logo-gif.gif",
-                                      height: 350,
-                                      frameRate: 30,
-                                    ),
+                                  child: CircleAvatar(
+                                    radius: 50,
+                                    backgroundImage:
+                                        AssetImage("assets/perfil.jpg"),
                                   )),
                             ],
                           ),
@@ -418,7 +407,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                   Container(
                                       width: 300,
                                       child: Text(
-                                        "Localizada em Porto velho Rondonia, e atendendo nas principais startups locais, o desenvolvedor geral Douglas José ja atua na area a mais de 4anos!",
+                                        sobre,
                                         style: TextStyle(
                                             color: Colors.black, fontSize: 16),
                                       )),
@@ -507,13 +496,13 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                       Row(
                                         children: [
                                           SizedBox(
-                                            width: 52,
+                                            width: 100,
                                           ),
                                           Text(
                                             "Quem Sou!",
                                             style: TextStyle(
                                                 fontSize: 25,
-                                                color: Colors.black),
+                                                color: Colors.white),
                                           ),
                                         ],
                                       ),
@@ -521,6 +510,9 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                         mainAxisAlignment:
                                             MainAxisAlignment.start,
                                         children: [
+                                          SizedBox(
+                                            width: 100,
+                                          ),
                                           Container(
                                             color: Colors.white,
                                             width: 75,
@@ -547,7 +539,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                       Container(
                                           width: 200,
                                           child: Text(
-                                            "Desenvolvedor de sistemas e aplicativos, com formação em Analise e Desenvolvimento de sistemas! experiencia pratica em c# dot.net e dart flutter, WebPage com Javascript, com conhecimento voltato para atender o maximo de publico possivel",
+                                            quemsou,
                                             style: TextStyle(
                                                 color: Colors.black,
                                                 fontSize: 16),
@@ -642,20 +634,20 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                     Row(
                                       children: [
                                         SizedBox(
-                                          width: 15,
+                                          width: 100,
                                         ),
                                         Text(
                                           "Objetivos",
                                           style: TextStyle(
                                               fontSize: 25,
-                                              color: Colors.black),
+                                              color: Colors.white),
                                         ),
                                       ],
                                     ),
                                     Row(
                                       children: [
                                         SizedBox(
-                                          width: 10,
+                                          width: 100,
                                         ),
                                         Container(
                                           color: Colors.white,
@@ -709,7 +701,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                     Container(
                                         width: 300,
                                         child: Text(
-                                          "Meu objetivo a sempre esta melhorando minha base de conhecimento, visando sempre as melhores soluções para alcançar o melhor resultado possivel!",
+                                          objetve,
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontSize: 16),
@@ -757,15 +749,15 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                               height: 8,
                             ),
                             Text(
-                              'Nome: Douglas J. M. Araujo',
+                              'Nome: $nome',
                               style: TextStyle(color: Colors.white),
                             ),
                             Text(
-                              'Email: douglasj44@gmail.com',
+                              'Email: $email',
                               style: TextStyle(color: Colors.white),
                             ),
                             Text(
-                              'Telefone: (69) 99324-2800',
+                              'Telefone: $telefone',
                               style: TextStyle(color: Colors.white),
                             ),
                           ],
@@ -818,7 +810,7 @@ class _PageWebState extends State<PageWeb> with TickerProviderStateMixin {
                                       abrirUrlLattes();
                                     },
                                     icon: Icon(
-                                      FontAwesomeIcons.person,
+                                      Icons.file_open,
                                       color: Colors.white,
                                     ),
                                     label: Text(

@@ -3,6 +3,8 @@ import 'package:flutter_animated_icons/icons8.dart';
 import 'package:gif_view/gif_view.dart';
 import 'package:lottie/lottie.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/userfull/strings.dart';
 
 class PageMobile extends StatefulWidget {
   const PageMobile({super.key});
@@ -39,9 +41,48 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
     _animationController.dispose();
   }
 
+  void abrirUrlGitHub() async {
+    const url = github;
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+      print("funciona");
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void abrirUrlLattes() async {
+    const url = lattes;
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+      print("funciona");
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void abrirUrlFace() async {
+    const url = face;
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+      print("funciona");
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void abrirUrlInsta() async {
+    const url = insta;
+    if (await canLaunchUrl(Uri.parse(url))) {
+      await launchUrl(Uri.parse(url));
+      print("funciona");
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
   void abrirUrl() async {
-    const url =
-        'https://drive.google.com/file/d/1p_3ifk2iH-zwvkfvD-9u9cqq_QCtsYMd/view?usp=sharing';
+    const url = pdfPort;
     if (await canLaunchUrl(Uri.parse(url))) {
       await launchUrl(Uri.parse(url));
       print("funciona");
@@ -56,8 +97,7 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text("Atenção"),
-            content: Text(
-                "O aplicativo ainda não esta disponivel para o publico geral! Pedimos desculpa pelo inconveniente!"),
+            content: Text(textDownload),
             actions: [
               TextButton.icon(
                   onPressed: () {
@@ -80,13 +120,9 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
         extendBodyBehindAppBar: false,
         appBar: AppBar(
           title: Container(
-            width: 50,
-            height: 50,
-            child: GifView.asset(
-              "assets/logo-gif.gif",
-              height: 200,
-              frameRate: 30,
-            ),
+            width: 65,
+            height: 65,
+            child: Image.asset("assets/fundoDJ.png"),
           ),
           automaticallyImplyLeading: false,
           backgroundColor: Color.fromRGBO(0, 51, 255, 1),
@@ -202,8 +238,9 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                                   Container(
                                       width: 200,
                                       child: Text(
-                                        "Experimente nosso aplicativo, e converse com profissionais de todo brasil prontos para ajudar você em qualquer situação!",
-                                        style: TextStyle(color: Colors.white),
+                                        inithome,
+                                        style: TextStyle(
+                                            color: Colors.white, fontSize: 12),
                                       )),
                                   const SizedBox(
                                     height: 15,
@@ -242,13 +279,10 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                                       ),
                                       height: 150,
                                       width: 150,
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(10),
-                                        child: GifView.asset(
-                                          "assets/logo-gif.gif",
-                                          height: 200,
-                                          frameRate: 30,
-                                        ),
+                                      child: CircleAvatar(
+                                        radius: 50,
+                                        backgroundImage:
+                                            AssetImage("assets/perfil.jpg"),
                                       )),
                                 ],
                               ),
@@ -367,10 +401,10 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                                     Container(
                                         width: 200,
                                         child: Text(
-                                          "Sistema Voltado para dar acesso rápido e direto a todos que sofrem com ansiedade depressão e doenças pscicológicas no geral! com profissionais qualificados e com acompanhamento remoto e presencial!",
+                                          sobre,
                                           style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 16),
+                                              fontSize: 12),
                                         )),
                                     const SizedBox(
                                       height: 15,
@@ -454,7 +488,7 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                                           width: 15,
                                         ),
                                         Text(
-                                          "Quem Somos!",
+                                          "Quem Sou!",
                                           style: TextStyle(
                                               fontSize: 25,
                                               color: Colors.white),
@@ -488,10 +522,10 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                                     Container(
                                         width: 200,
                                         child: Text(
-                                          "Somos um grupo de profionais de diversas areas, com foco voltado exclussivamente para ajudar as pessoas com uma das doenças mais perigosas e que mais mata no mundo, a DEPRESSÃO!",
+                                          quemsou,
                                           style: TextStyle(
                                               color: Colors.black,
-                                              fontSize: 16),
+                                              fontSize: 12),
                                         )),
                                     const SizedBox(
                                       height: 15,
@@ -640,10 +674,10 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                                       Container(
                                           width: 200,
                                           child: Text(
-                                            "Com o trabalho de levar as pessoas uma nova forma de trabalhar e cuidadar de sua saude mental, criasmos um sistema que atende 100% das necessidades dos individuos que precisam de ajuda mental, seja presencial ou remoto!",
+                                            objetve,
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontSize: 16),
+                                                fontSize: 12),
                                           )),
                                       const SizedBox(
                                         height: 15,
@@ -667,35 +701,113 @@ class _PageMobileState extends State<PageMobile> with TickerProviderStateMixin {
                 ),
                 //5- INFORMAÇÕES DE CONTATO
                 Container(
+                    width: screenwidth,
+                    height: screenheight * 0.2,
+                    key: Keys.KeyYello,
+                    color: Colors.transparent,
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(
+                          width: 30,
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              "Informação de contato!",
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            SizedBox(
+                              height: 8,
+                            ),
+                            Text(
+                              'Nome: $nome',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              'Email: $email',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            Text(
+                              'Telefone: $telefone',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ],
+                        ),
+                      ],
+                    )),
+                // 6- links
+                Container(
                   width: screenwidth,
                   height: screenheight * 0.2,
-                  key: Keys.KeyYello,
                   color: Colors.transparent,
                   padding: const EdgeInsets.all(16),
-                  child: const Column(
+                  child: Row(
                     children: [
-                      Text(
-                        "Informação de contato!",
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      SizedBox(
-                        height: 8,
-                      ),
-                      Text(
-                        'Nome: Douglas J. M. Araujo',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Text(
-                        'Email: douglasj44@gmail.com',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Text(
-                        'Telefone: (69) 99324-2800',
-                        style: TextStyle(color: Colors.white),
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              TextButton.icon(
+                                  onPressed: () {
+                                    abrirUrlGitHub();
+                                  },
+                                  icon: FaIcon(
+                                    FontAwesomeIcons.github,
+                                    color: Colors.white,
+                                  ),
+                                  label: Text(
+                                    "GitHub",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 12),
+                                  )),
+                              TextButton.icon(
+                                  onPressed: () {
+                                    abrirUrlFace();
+                                  },
+                                  icon: Icon(
+                                    FontAwesomeIcons.facebook,
+                                    color: Colors.white,
+                                  ),
+                                  label: Text(
+                                    "Facebook",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 12),
+                                  )),
+                              TextButton.icon(
+                                  onPressed: () {
+                                    abrirUrlInsta();
+                                  },
+                                  icon: Icon(
+                                    FontAwesomeIcons.instagram,
+                                    color: Colors.white,
+                                  ),
+                                  label: Text(
+                                    "Instagram",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 12),
+                                  )),
+                              TextButton.icon(
+                                  onPressed: () {
+                                    abrirUrlLattes();
+                                  },
+                                  icon: Icon(
+                                    Icons.file_open,
+                                    color: Colors.white,
+                                  ),
+                                  label: Text(
+                                    "Curriculo Lattes",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 12),
+                                  )),
+                            ],
+                          )
+                        ],
                       ),
                     ],
                   ),
-                ),
+                )
               ],
             ),
           ),
